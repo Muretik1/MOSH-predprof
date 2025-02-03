@@ -1,12 +1,21 @@
 import sys
+
 from PyQt5.QtWidgets import QApplication, QMainWindow
+
 from PyQt5.QtGui import QPixmap, QImage
+
 from design import Ui_MainWindow, QtWidgets
+
 
 from k_means import *
 
+
+
 def resize(image):
     return cv2.resize(image, (500, 500), interpolation=cv2.INTER_AREA)
+
+
+
 
 DATA = []
 class MainApp(QMainWindow):
@@ -40,7 +49,6 @@ class MainApp(QMainWindow):
                         image = resize(image)
                         height, width, channels = image.shape
                         bytes = channels * width
-
                         qimage = QImage(image.data, width, height, bytes, QImage.Format_RGB888)
                         pixmap = QPixmap.fromImage(qimage)
                         self.ui.frame.setPixmap(pixmap)
@@ -53,22 +61,19 @@ class MainApp(QMainWindow):
                         image = resize(image)
                         height, width, channels = image.shape
                         bytes = channels * width
-
                         qimage = QImage(image.data, width, height, bytes, QImage.Format_RGB888)
                         pixmap = QPixmap.fromImage(qimage)
                         self.ui.frame.setPixmap(pixmap)
                         self.ui.frame.setScaledContents(True)
                         self.ui.label_path.setText(DATA[curi-1][0])
+#загрузка файла
 
     def load_file(self):
         global DATA
         file_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите файл", "", "*.jpg")
         self.ui.label_path.setText(file_path)
-
         callback = processing(file_path)
-
         callback = [file_path] + callback
-
         for i in range(len(DATA)):
             if DATA[i][0] == callback[0]:
                 DATA[i] = callback
@@ -89,6 +94,8 @@ class MainApp(QMainWindow):
 
         except Exception as e:
             print(e)
+            
+# сохранение файла
 
     def save_file(self):
         directory = QtWidgets.QFileDialog.getExistingDirectory(self, "Выберите папку", "")
@@ -98,10 +105,12 @@ class MainApp(QMainWindow):
             self.ui.label_path.setText('Wrong directory')
             print(e)
 
+#отображение ошибок
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
 
+#загрузка
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
