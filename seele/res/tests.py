@@ -4,6 +4,7 @@ import glob
 from k_means import *
 
 # correct convertation
+#конвертация
 def fir():
     path = '..\\temp\\*.jpg'
     resp = []
@@ -12,6 +13,7 @@ def fir():
     return resp
 #hmn
 # correct save img
+#сохранение изображения
 def sec():
     resp = fir()
     k = 0
