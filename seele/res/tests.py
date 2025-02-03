@@ -7,10 +7,10 @@ from k_means import *
 def fir():
     path = '..\\temp\\*.jpg'
     resp = []
-    for file in glob.glob(path, recursive=True):
+    for file in glob.glob(path, recursive=True): 
         resp.append(processing(file))
     return resp
-
+#rdfgthujkguyhfilkcxrfgdthgujhkgbhn,vcfgcbhvjmbnvmbkhmjcfgbhvfyhhjmvfhjncgldkhbmfokbhmfcgohnmgftphnkgmhgktmhnogtmhotgmhotghmn
 # correct save img
 def sec():
     resp = fir()
