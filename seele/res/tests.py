@@ -10,7 +10,7 @@ def fir():
     for file in glob.glob(path, recursive=True): 
         resp.append(processing(file))
     return resp
-#rdfgthujkguyhfilkcxrfgdthgujhkgbhn,vcfgcbhvjmbnvmbkhmjcfgbhvfyhhjmvfhjncgldkhbmfokbhmfcgohnmgftphnkgmhgktmhnogtmhotgmhotghmn
+#hmn
 # correct save img
 def sec():
     resp = fir()
