@@ -50,4 +50,3 @@ def save_results(results, path):
 
     df = pd.DataFrame(csv_data, columns=['Image Name', 'Contour Count'])
     df.to_csv(output_csv_path, sep=';', index=False)
-
